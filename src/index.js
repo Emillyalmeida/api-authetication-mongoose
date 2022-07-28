@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import DBconection from "./db/db.js";
+import userRoute from "./route/authUserRoute.js";
 
 const app = express();
 app.use(express.json());
@@ -12,4 +13,4 @@ app.listen(5000, () => {
 
 DBconection.Conection();
 
-// app.use();
+app.use(userRoute);
