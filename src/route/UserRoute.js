@@ -54,6 +54,11 @@ userRoute.put("/users/:id", async (req, res) => {
   if (!id) {
     return res.status(400).send({ error: "missing params id" });
   }
+
+  if (req.body.password) {
+    const newPassword = await bcrypt.hash(req.body.password, saltRounds);
+    req.body.password = newPassword;
+  }
   try {
     const updateUser = await UsersModel.findOneAndUpdate(
       { _id: id },
