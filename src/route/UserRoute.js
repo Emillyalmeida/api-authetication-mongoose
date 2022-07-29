@@ -44,7 +44,7 @@ userRoute.post("/users", async (req, res) => {
 
     res.status(201).send({ user });
   } catch (error) {
-    res.status(400).send({ erro: "it email already register" });
+    res.status(400).send({ erro: "Email already exists" });
   }
 });
 
@@ -74,7 +74,7 @@ userRoute.put("/users/:id", async (req, res) => {
 
     res.status(201).send({ user: updateUser });
   } catch (error) {
-    res.send(error);
+    res.status(400).send({ error: "Could not update the user, verify id" });
   }
 });
 
@@ -94,7 +94,7 @@ userRoute.delete("/users/:id", authMiddle, async (req, res) => {
 
     res.status(400).send({ error: "Could not delete the user" });
   } catch (error) {
-    res.send(error);
+    res.status(400).send({ error: "Could not delete the user, verify id" });
   }
 });
 
