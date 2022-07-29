@@ -1,6 +1,7 @@
 import { Router } from "express";
 import UsersModel from "../model/userModel.js";
 import bcrypt from "bcrypt";
+import authMiddle from "../middlewares/authMiddleware.js";
 
 const saltRounds = 10;
 const userRoute = Router();
@@ -67,6 +68,26 @@ userRoute.put("/users/:id", async (req, res) => {
     }
 
     res.status(201).send({ user: updateUser });
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+userRoute.delete("/users/:id", authMiddle, async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).send({ error: "missing params id" });
+  }
+
+  try {
+    const deletedUser = await UsersModel.deleteOne({ _id: id });
+
+    if (deletedUser.deletedCount) {
+      return res.status(200).send("excluded user");
+    }
+
+    res.status(400).send({ error: "Could not delete the user" });
   } catch (error) {
     res.send(error);
   }
