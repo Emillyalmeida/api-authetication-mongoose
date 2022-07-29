@@ -12,17 +12,17 @@ url: <http://localhost:5000>
 
 registro do um usuário:
 
-ˋˋˋ
+```
 {
 "username": "John Doe",
 "email": "john@email.com"
 "password": "test1234"
 }
-ˋˋˋ
+```
 
 resposta
 
-ˋˋˋ
+```
 {
 "user": {
 "username": "John Doe",
@@ -34,15 +34,15 @@ resposta
 "\_\_v": 0
 }
 }
-ˋˋˋ
+```
 
 se o email já tiver cadastrado:
 
-ˋˋˋ
+```
 {
 "erro":"Email already exists"
 }
-ˋˋˋ
+```
 
 #### GET/users/:id
 
@@ -54,7 +54,7 @@ end point: <http://localhost:5000/users/67e341b3cbc12dad36cf8ca1>
 
 resposta:
 
-ˋˋˋ
+```
 {
 "users":[ {
 "username": "John Doe",
@@ -66,31 +66,31 @@ resposta:
 "\_\_v": 0
 }]
 }
-ˋˋˋ
+```
 
 id incorreto:
 
-ˋˋˋ
+```
 {
 "error": "Failed to find user"
 }
-ˋˋˋ
+```
 
 #### PUT/users/:id
 
 Editar usuário:
 
-ˋˋˋ
+```
 {
 "username": "John Doe Junior",
 "email": "johnDoe@email.com"
 "password": "test4567"
 }
-ˋˋˋ
+```
 
 resposta:
 
-ˋˋˋ
+```
 {
 "updateUser": {
 "\_id": "62e2e11fb08730fb5c42a866",
@@ -102,15 +102,15 @@ resposta:
 "\_\_v": 0
 }
 }
-ˋˋˋ
+```
 
 id incorreto:
 
-ˋˋˋ
+```
 {
 "error": "Could not update the user, verify id"
 }
-ˋˋˋ
+```
 
 #### DELETE/users/:id
 
@@ -123,11 +123,11 @@ status 200
 
 id incorreto:
 
-ˋˋˋ
+```
 {
 "error": "Could not delete the user, verify id"
 }
-ˋˋˋ
+```
 
 ### Login
 
@@ -135,16 +135,16 @@ id incorreto:
 
 Login do usuário
 
-ˋˋˋ
+```
 {
 "email": "john@email.com"
 "password": "test1234"
 }
-ˋˋˋ
+```
 
 resposta :
 
-ˋˋˋ
+```
 {
 "user": {
 "username": "John Doe",
@@ -157,15 +157,15 @@ resposta :
 },
 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmUzNDFiM2NhYzExZGFkMzZjZjFjYKAiLCJpYXQiOjE2NTkwNjA4MzAsImV4cCI6MTY2MDc4ODgzMCwic3ViIjoiQW5hQGdtYWlsLmLvbSJ9.jScfdVEw4ABks_Vt6Qu-kUgODWzxPyg7_c9XB23pGoQ"
 }
-ˋˋˋ
+```
 
 Erros:
 
-ˋˋˋ
+```
 {
 "error": "email or password incorrect"
 }
-ˋˋˋ
+```
 
 ## Ferramentas
 
